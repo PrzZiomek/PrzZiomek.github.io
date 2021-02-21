@@ -1,0 +1,1397 @@
+@charset "UTF-8";
+@import url("../../node_modules/font-awesome/css/font-awesome.min.css");
+.wrap {
+  max-width: 100vw;
+  min-height: 100vh;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.3); }
+  .wrap::after {
+    content: "";
+    background: url("../../graphics/green-bubbles-background.jpg");
+    top: 0;
+    left: -20%;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1; }
+
+@media (min-width: 1920px) {
+  .wrap::after {
+    background-repeat: no-repeat;
+    background-size: cover; } }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif; }
+
+html {
+  font-size: 16px; }
+
+@media (max-width: 1283px) {
+  html {
+    font-size: 15px; } }
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 20px; } }
+
+/*
+ 1920 x 1080
+ 1366 x 768
+ 768 x 1024
+ 360 x 720
+ 375  x 667
+ 360 x 720
+ */
+.filters {
+  position: absolute;
+  top: 3vh;
+  right: 5vw;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 1.5rem;
+  color: #722121;
+  letter-spacing: 2px;
+  border: 1px solid green;
+  background-color: limegreen;
+  cursor: pointer;
+  margin: 0 2% 0 2%;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.7%;
+  border-radius: 13%;
+  border: 2px solid brown;
+  border-bottom: none; }
+
+@media (min-width: 1920px) {
+  .filters {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1.9rem;
+    color: #722121;
+    letter-spacing: 2px;
+    border: 1px solid green;
+    background-color: limegreen;
+    cursor: pointer;
+    margin: 0 2% 0 2%;
+    text-decoration: none;
+    text-align: center;
+    padding: 1%;
+    border-radius: 13%; } }
+
+header {
+  text-align: center;
+  min-height: 20vh;
+  margin: 0 22% 2% 22%;
+  background-color: rgba(50, 205, 50, 0.9);
+  border-radius: 2%;
+  text-shadow: 7px -3px 3px #CE5937; }
+  header > h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    font-style: italic;
+    padding-bottom: 1%; }
+  header > h2 {
+    font-size: 2.4rem;
+    padding-top: 1%; }
+
+@media (min-width: 1283px) {
+  header > h2 {
+    font-size: 2rem; } }
+
+@media (max-width: 1920px) {
+  header {
+    min-height: 18vh; } }
+
+nav.menu {
+  grid-area: menu;
+  position: fixed;
+  left: 0;
+  top: 28vh;
+  font-size: 1.8rem; }
+
+nav.menu li {
+  list-style: none;
+  cursor: pointer;
+  text-align: center; }
+  nav.menu li:nth-child(5) {
+    font-size: 1.4rem; }
+  nav.menu li.cart {
+    position: relative; }
+  nav.menu li.cart::after {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    display: block;
+    top: 0;
+    right: -10%;
+    font-size: 1.8rem;
+    content: attr(beerAmount); }
+  nav.menu li.favorite {
+    position: relative; }
+  nav.menu li.favorite::after {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    display: block;
+    top: 0;
+    right: -16%;
+    font-size: 1.8rem;
+    content: attr(beerAmount); }
+
+nav.menu li a {
+  text-decoration: none;
+  background-color: darkorange;
+  text-align: center;
+  color: black;
+  display: block;
+  width: 100%;
+  height: 15%;
+  border-radius: 13%;
+  padding: 5%;
+  margin: 12%;
+  box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4); }
+
+nav.menu li a:hover {
+  background-color: green;
+  color: lawngreen;
+  transition: 0.7s; }
+
+@media (min-width: 1920px) {
+  nav.menu {
+    left: 1.5%;
+    top: 28vh; }
+    nav.menu.li a {
+      padding: 7%;
+      margin: 20% 12%; } }
+
+.menuAndArea {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-areas: "menu main";
+  grid-template-columns: 1fr 7fr;
+  margin-top: 4%; }
+
+main {
+  grid-area: main;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 20px; }
+
+.sentinel {
+  position: absolute;
+  right: 10vw;
+  top: 200vh;
+  width: 1px;
+  height: 1px; }
+
+.loginWindow-close {
+  position: absolute;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  height: 6%;
+  width: 6%;
+  right: 0;
+  top: 0;
+  color: red;
+  transform: translate(42%, -42%);
+  border: 3px solid green;
+  background-color: #c4975d;
+  cursor: pointer; }
+  .loginWindow-close:hover {
+    transition: 0.5s;
+    background-color: green;
+    color: lime; }
+
+.loginWindow-header {
+  border: 1px solid green;
+  margin: 2%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold; }
+  .loginWindow-header > h3 {
+    font-size: 2.5rem;
+    margin: 1% 0; }
+  .loginWindow-header > p {
+    display: block;
+    margin: 1% 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: darkgreen; }
+
+.login-form {
+  margin: 0 2%;
+  border: 1px solid green;
+  height: 50%;
+  width: 96%;
+  padding: 2% 0; }
+  .login-form > label {
+    width: 20%;
+    margin: 0 2.5% 5% 18%;
+    font-size: 1.3rem; }
+  .login-form :nth-child(3) {
+    margin-right: 4%; }
+  .login-form > input {
+    width: 40%;
+    height: 12%;
+    margin: 2% 20% 5% 0;
+    background-color: green; }
+  .login-form > .check {
+    width: unset;
+    height: unset;
+    margin: 2% 1% 2% 30%; }
+  .login-form > label:nth-last-of-type(1) {
+    width: 40%;
+    margin: 5% 10% 5% 0;
+    font-size: 0.8rem; }
+  .login-form > button {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: #722121;
+    letter-spacing: 2px;
+    border: 1px solid green;
+    background-color: limegreen;
+    cursor: pointer;
+    margin: 0 2% 0 2%;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.8%;
+    border-radius: 13%;
+    width: 30%;
+    display: block;
+    margin: 6% auto 0 auto; }
+    .login-form > button:hover {
+      transition: 0.5s;
+      background-color: green;
+      color: lime; }
+
+.loginWindow {
+  position: fixed;
+  width: 35vw;
+  min-height: 60vh;
+  background-color: #f3c17f;
+  border: 4px solid darkgreen;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: none; }
+
+.loginWindow-questions {
+  margin: 2%;
+  border: 1px solid green;
+  height: 20%;
+  padding-bottom: 2%;
+  text-align: center; }
+  .loginWindow-questions > div {
+    margin: 5% auto;
+    width: 80%; }
+    .loginWindow-questions > div > p {
+      display: inline; }
+  .loginWindow-questions a {
+    font-weight: bold;
+    margin: 1% 0;
+    text-decoration: none;
+    color: darkgreen; }
+    .loginWindow-questions a:hover {
+      color: darkred;
+      text-decoration-line: underline; }
+
+.contact {
+  position: relative; }
+
+.contactData {
+  display: none;
+  position: absolute;
+  padding: 3%;
+  right: -26.5vw;
+  top: 0;
+  min-height: 30vh;
+  width: 0;
+  font-size: 1.2rem;
+  text-transform: none;
+  background-color: #f3c17f;
+  border: 4px solid darkgreen;
+  z-index: 100; }
+  .contactData > span {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 2%; }
+  .contactData > :nth-child(1) {
+    margin-bottom: 5%; }
+  .contactData > :nth-last-child() {
+    margin-bottom: 0; }
+
+.contact:hover > .contactData {
+  display: block;
+  width: 25vw;
+  transition: 0.8s; }
+
+.beer-description {
+  width: 95%;
+  height: 70vh;
+  background-color: rgba(50, 205, 50, 0.9);
+  padding-bottom: 10%;
+  box-shadow: 3px 3px 5px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 5%; }
+
+.description-params {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  justify-content: center;
+  text-align: left;
+  right: 28%;
+  bottom: 13%;
+  width: 45%;
+  height: 25%;
+  font-size: 1.2rem; }
+  .description-params > p {
+    flex-basis: 40%;
+    margin-top: 1%; }
+  .description-params > span {
+    flex-basis: 40%;
+    margin-top: 1%;
+    text-transform: lowercase; }
+
+.description-part {
+  position: relative;
+  min-height: 60vh; }
+  .description-part > a {
+    display: block;
+    position: relative;
+    margin: 1% 0 0 76%;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: #722121;
+    font-weight: bold;
+    font-size: 1.2rem; }
+    .description-part > a:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 30%;
+      height: 3px;
+      right: 11%;
+      bottom: -10%;
+      background-color: #722121; }
+    .description-part > a:hover:after {
+      background-color: lime;
+      transition: 0.5s;
+      right: 70%; }
+    .description-part > a:hover {
+      transition: 0.5s;
+      color: lime; }
+    .description-part > a::after {
+      right: 17%; }
+  .description-part > h3 {
+    text-align: center;
+    font-size: 2rem; }
+  .description-part > img {
+    width: 9vw;
+    height: 55vh;
+    margin: 0 2% 0 4%; }
+  .description-part .description {
+    position: absolute;
+    text-align: right;
+    text-transform: lowercase;
+    font-size: 1.3rem;
+    width: 70%;
+    height: 40%;
+    right: 3%;
+    top: 25%; }
+  .description-part > button {
+    position: absolute;
+    right: 1%;
+    top: 65%;
+    height: 15%;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1.6rem;
+    color: #722121;
+    letter-spacing: 2px;
+    border: 1px solid green;
+    background-color: limegreen;
+    cursor: pointer;
+    margin: 0 2% 0 2%;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.5%;
+    border-radius: 13%;
+    border: 2px solid green;
+    border-radius: 7%;
+    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4); }
+    .description-part > button:hover {
+      transition: 0.5s;
+      background-color: green;
+      color: lime; }
+    .description-part > button.cartBtn {
+      top: 85%;
+      width: 27%; }
+    .description-part > button.favourBtn {
+      width: 32%; }
+
+.loader {
+  position: absolute;
+  display: block;
+  top: 50vh;
+  left: 50vw;
+  width: 10vw;
+  height: 10vh;
+  color: white;
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  transform: translate(-50%, -50%); }
+
+.beer-label {
+  flex-basis: 22%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  min-height: 45vh;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 2% 0 3% 0;
+  padding-bottom: 1%;
+  background-color: rgba(50, 205, 50, 0.9);
+  border: 2px solid green;
+  border-radius: 5%; }
+  @media screen and (max-width: 1920) and (max-height: 1080) {
+    .beer-label {
+      flex-basis: 28%; } }
+  .beer-label > span,
+  .beer-label > p {
+    flex-basis: 100%;
+    padding: 15px; }
+  .beer-label > span.beerTitle {
+    max-height: 58px;
+    overflow: hidden; }
+  .beer-label > p.price {
+    font-weight: normal; }
+  .beer-label > a {
+    flex-basis: 45%;
+    border-radius: 10%;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1.1rem;
+    color: #722121;
+    letter-spacing: 2px;
+    border: 1px solid green;
+    background-color: limegreen;
+    cursor: pointer;
+    margin: 0 2% 0 2%;
+    text-decoration: none;
+    text-align: center;
+    padding: 0;
+    border-radius: 13%;
+    border: 3px solid green; }
+    .beer-label > a:hover {
+      transition: 0.5s;
+      background-color: green;
+      color: lime; }
+  .beer-label > button {
+    flex-basis: 45%;
+    border-radius: 10%;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1.1rem;
+    color: #722121;
+    letter-spacing: 2px;
+    border: 1px solid green;
+    background-color: limegreen;
+    cursor: pointer;
+    margin: 0 2% 0 2%;
+    text-decoration: none;
+    text-align: center;
+    padding: 0;
+    border-radius: 13%;
+    border: 3px solid green; }
+    .beer-label > button:hover {
+      transition: 0.5s;
+      background-color: green;
+      color: lime; }
+  .beer-label > img {
+    width: 20%;
+    height: 55%; }
+    @media screen and (max-width: 1920) and (max-height: 1080) {
+      .beer-label > img {
+        width: 25%;
+        height: 65%; } }
+
+.previevModal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0); }
+
+.cart-previev {
+  position: fixed;
+  height: 650px;
+  width: 50%;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  background-color: #f3c17f;
+  border: 4px solid darkgreen;
+  overflow-y: scroll; }
+
+.cart-previev .statement {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin: 2%;
+  text-align: center;
+  font-weight: normal; }
+
+.previev-actualBeer {
+  height: 45vh;
+  width: 45vw;
+  margin: 0 auto;
+  border: 2px solid green;
+  position: relative; }
+  .previev-actualBeer > h3 {
+    margin: 2%;
+    margin-left: 30%;
+    font-size: 2rem;
+    font-weight: normal; }
+  .previev-actualBeer > img {
+    width: 14%;
+    height: 87%;
+    margin: 2%;
+    position: absolute;
+    left: 4%;
+    top: 4%; }
+  .previev-actualBeer > .price {
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-left: 30%; }
+  .previev-actualBeer > .description {
+    display: block;
+    font-size: 1rem;
+    margin: 2%;
+    margin-left: 30%;
+    margin-right: 4%; }
+  .previev-actualBeer > a,
+  .previev-actualBeer > button {
+    position: absolute;
+    text-align: center;
+    top: 80%;
+    height: 12%;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1.1rem;
+    color: #722121;
+    letter-spacing: 2px;
+    border: 1px solid green;
+    background-color: limegreen;
+    cursor: pointer;
+    margin: 0 2% 0 2%;
+    text-decoration: none;
+    text-align: center;
+    padding: 1.5%;
+    border-radius: 13%; }
+    .previev-actualBeer > a:hover,
+    .previev-actualBeer > button:hover {
+      transition: 0.5s;
+      background-color: green;
+      color: lime; }
+  .previev-actualBeer > button {
+    left: 28%;
+    width: 37%; }
+  .previev-actualBeer > a {
+    background-color: green;
+    color: #8b2222;
+    left: 75%;
+    width: 18%; }
+    .previev-actualBeer > a:hover {
+      background-color: brown; }
+
+.previev-cartContent {
+  width: 90%;
+  margin: 0 5%;
+  color: green; }
+  .previev-cartContent > h3 {
+    font-weight: bold;
+    color: brown;
+    font-size: 2rem;
+    margin: 4% 0 2% 0; }
+
+.cartContent-details {
+  font-weight: bold;
+  text-transform: capitalize;
+  background-color: #025002;
+  color: #f1af59;
+  text-align: center; }
+  .cartContent-details > p {
+    margin: 1%;
+    width: 15%;
+    display: inline-block; }
+  .cartContent-details > :nth-child(1) {
+    width: 40%; }
+  .cartContent-details > :nth-child(3) {
+    width: 20%; }
+
+.cartContent-listWithOrders > .beer-paramsPreviev {
+  display: flex;
+  width: 100%;
+  height: 6vh;
+  background-color: green;
+  color: white;
+  font-size: 1.2rem;
+  border: 1px solid #025002;
+  align-items: center;
+  padding-left: 2%; }
+  .cartContent-listWithOrders > .beer-paramsPreviev > :nth-child(1) {
+    flex-basis: 40%;
+    overflow: hidden; }
+  .cartContent-listWithOrders > .beer-paramsPreviev > :nth-child(2) {
+    flex-basis: 10%;
+    margin-left: 8%; }
+  .cartContent-listWithOrders > .beer-paramsPreviev > :nth-child(3) {
+    margin-left: 2%; }
+  .cartContent-listWithOrders > .beer-paramsPreviev > :nth-last-child(1) {
+    margin-left: 5%; }
+  .cartContent-listWithOrders > .beer-paramsPreviev > button {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1.5rem;
+    color: #722121;
+    letter-spacing: 2px;
+    border: 1px solid green;
+    background-color: limegreen;
+    cursor: pointer;
+    margin: 0 2% 0 2%;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.5%;
+    border-radius: 13%;
+    flex-basis: 7%; }
+    .cartContent-listWithOrders > .beer-paramsPreviev > button:hover {
+      transition: 0.5s;
+      background-color: green;
+      color: lime;
+      background-color: brown; }
+
+.cartContent-recapCosts {
+  margin: 3% 0;
+  margin-left: 70%; }
+  .cartContent-recapCosts > p {
+    text-transform: uppercase;
+    color: brown;
+    display: inline-block;
+    font-size: 1.2rem; }
+  .cartContent-recapCosts > .sum {
+    font-weight: bold;
+    color: black;
+    margin-left: 22%;
+    font-size: 1.2rem; }
+
+.errorStatement {
+  position: absolute;
+  width: 50vw;
+  height: 20vh;
+  background-color: green;
+  color: yellow;
+  font-size: 2.2rem;
+  left: 50%;
+  top: 50%;
+  border: 2px double yellow;
+  transform: translate(-50%, -50%); }
+  .errorStatement::after {
+    position: absolute;
+    text-transform: none;
+    content: "Brak połączenia z internetem!";
+    left: 7%;
+    top: 50%;
+    transform: translateY(-50%); }
+
+.favorite-cart {
+  width: 95%;
+  min-height: 75vh;
+  background-color: rgba(50, 205, 50, 0.9);
+  box-shadow: 3px 3px 5px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 5%; }
+  .favorite-cart > .title {
+    width: 40%;
+    margin: 4% auto;
+    text-align: center;
+    text-transform: none;
+    font-size: 2.4rem;
+    color: #722121; }
+
+.favoriteCart-columnTitles {
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #722121;
+  width: 90%;
+  margin: 2% auto;
+  border-bottom: 2px solid #722121; }
+  .favoriteCart-columnTitles > :nth-child(1) {
+    margin-left: 1%; }
+  .favoriteCart-columnTitles > :nth-child(2) {
+    margin-left: 20%; }
+  .favoriteCart-columnTitles > :nth-child(3) {
+    margin-left: 14%; }
+    @media screen and (max-width: 1920) and (max-height: 1080) {
+      .favoriteCart-columnTitles > :nth-child(3) {
+        margin-left: 17%; } }
+  .favoriteCart-columnTitles > :nth-child(4) {
+    margin-left: 10%; }
+  .favoriteCart-columnTitles > :nth-child(5) {
+    margin-left: 5%; }
+    @media screen and (max-width: 1920) and (max-height: 1080) {
+      .favoriteCart-columnTitles > :nth-child(5) {
+        margin-left: 8%; } }
+  .favoriteCart-columnTitles > p {
+    margin: 1%;
+    display: inline-block;
+    font-size: 1.2rem; }
+
+.favoriteCart-content {
+  display: flex;
+  width: 90%;
+  height: 15vh;
+  overflow: hidden;
+  color: brown;
+  border: 1px solid #025002;
+  align-items: center;
+  margin: auto; }
+  .favoriteCart-content > img {
+    width: 2.5vw;
+    height: 13vh;
+    margin: 1% 6% 1% 4%; }
+  .favoriteCart-content > :nth-child(3) {
+    flex-basis: 40%;
+    overflow: hidden;
+    margin-left: 6%;
+    margin-right: 5%; }
+  .favoriteCart-content > :nth-child(4) {
+    flex-basis: 10%;
+    margin-left: 6%;
+    margin-right: 3%; }
+  .favoriteCart-content > :nth-child(5) {
+    margin-left: 2%; }
+  .favoriteCart-content > :nth-child(6) {
+    flex-basis: 5%;
+    text-align: center; }
+  .favoriteCart-content > :nth-last-child(2) {
+    margin-left: 4%;
+    flex-basis: 10%; }
+  .favoriteCart-content > :nth-last-child(1) {
+    margin-left: 4%;
+    margin-right: 2%;
+    flex-basis: 15%;
+    text-transform: none;
+    font-size: 1.3rem; }
+  .favoriteCart-content > button {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: #722121;
+    letter-spacing: 2px;
+    border: 1px solid green;
+    background-color: limegreen;
+    cursor: pointer;
+    margin: 0 2% 0 2%;
+    text-decoration: none;
+    text-align: center;
+    padding: 1%;
+    border-radius: 13%;
+    margin: 0 1%;
+    flex-basis: 6%; }
+    .favoriteCart-content > button:hover {
+      transition: 0.5s;
+      background-color: green;
+      color: lime;
+      background-color: brown; }
+  .favoriteCart-content > .nameWithDescr {
+    margin: 2% 0;
+    height: 90%;
+    text-transform: none; }
+    .favoriteCart-content > .nameWithDescr > .beerTitle {
+      font-weight: bold;
+      font-size: 1.3rem;
+      text-decoration: none;
+      color: inherit; }
+      .favoriteCart-content > .nameWithDescr > .beerTitle:hover {
+        color: darkred;
+        font-size: 1.4rem;
+        text-decoration-line: underline; }
+    .favoriteCart-content > .nameWithDescr > .description {
+      margin-top: 3%;
+      margin-bottom: 2%;
+      overflow: hidden;
+      font-size: 1rem;
+      height: 70%; }
+
+.favoriteModal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0); }
+
+.actualFavoritePreviev {
+  position: fixed;
+  min-height: 450px;
+  width: 50%;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  background-color: #f3c17f;
+  border: 4px solid darkgreen; }
+  .actualFavoritePreviev > .statement {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin: 2%;
+    text-align: center;
+    font-weight: normal; }
+  .actualFavoritePreviev > .previevActualFavorBeer {
+    height: 45vh;
+    width: 45vw;
+    margin: 0 auto;
+    margin-bottom: 2%;
+    border: 2px solid green;
+    position: relative; }
+    .actualFavoritePreviev > .previevActualFavorBeer > h3 {
+      margin: 2%;
+      margin-left: 30%;
+      font-size: 2rem;
+      font-weight: normal; }
+    .actualFavoritePreviev > .previevActualFavorBeer > img {
+      width: 14%;
+      height: 87%;
+      margin: 2%;
+      position: absolute;
+      left: 4%;
+      top: 4%; }
+    .actualFavoritePreviev > .previevActualFavorBeer > .price {
+      font-weight: bold;
+      font-size: 2.5rem;
+      margin-left: 30%; }
+    .actualFavoritePreviev > .previevActualFavorBeer > .description {
+      display: block;
+      font-size: 1rem;
+      margin: 2%;
+      margin-left: 30%;
+      margin-right: 4%; }
+    .actualFavoritePreviev > .previevActualFavorBeer > a,
+    .actualFavoritePreviev > .previevActualFavorBeer > button {
+      position: absolute;
+      text-align: center;
+      top: 80%;
+      height: 12%;
+      text-transform: uppercase;
+      font-weight: normal;
+      font-size: 1.1rem;
+      color: #722121;
+      letter-spacing: 2px;
+      border: 1px solid green;
+      background-color: limegreen;
+      cursor: pointer;
+      margin: 0 2% 0 2%;
+      text-decoration: none;
+      text-align: center;
+      padding: 1.5%;
+      border-radius: 13%; }
+      .actualFavoritePreviev > .previevActualFavorBeer > a:hover,
+      .actualFavoritePreviev > .previevActualFavorBeer > button:hover {
+        transition: 0.5s;
+        background-color: green;
+        color: lime; }
+    .actualFavoritePreviev > .previevActualFavorBeer > .close {
+      left: 28%;
+      width: 20%; }
+    .actualFavoritePreviev > .previevActualFavorBeer > a {
+      color: #8b2222;
+      left: 55%;
+      width: 40%; }
+      .actualFavoritePreviev > .previevActualFavorBeer > a:hover {
+        background-color: brown; }
+    .actualFavoritePreviev > .previevActualFavorBeer > .close {
+      text-transform: uppercase; }
+
+.shopping-cart {
+  width: 95%;
+  min-height: 75vh;
+  background-color: rgba(50, 205, 50, 0.9);
+  box-shadow: 3px 3px 5px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 5%; }
+
+.cart-progressBar {
+  width: 60%;
+  height: 2vh;
+  background-color: #b6c98f;
+  margin: 5% auto;
+  position: relative; }
+  .cart-progressBar > div {
+    width: 6vh;
+    height: 6vh;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #b6c98f;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+    .cart-progressBar > div:nth-child(1) {
+      left: 0;
+      background-color: green;
+      color: #b6c98f;
+      border: 6px solid #b6c98f; }
+    .cart-progressBar > div:nth-child(2) {
+      left: 33%; }
+    .cart-progressBar > div:nth-child(3) {
+      left: 66%; }
+    .cart-progressBar > div:nth-child(4) {
+      left: 100%; }
+
+.cart-header {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #722121; }
+  .cart-header > .title {
+    margin: 0 2% 0 7%;
+    display: inline-block;
+    position: relative; }
+    .cart-header > .title::before {
+      position: absolute;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 8%;
+      left: -25%;
+      display: block;
+      content: "1";
+      height: 145%;
+      width: 20%;
+      background-color: green;
+      margin-right: 1%; }
+  .cart-header > .amount {
+    font-size: 2rem;
+    font-weight: bold;
+    display: inline-block; }
+  .cart-header > p {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-left: 7%;
+    text-transform: none; }
+
+.cart-listWithOrders {
+  width: 90%;
+  margin: 0 auto; }
+  .cart-listWithOrders > .shoppingCart-content {
+    display: flex;
+    width: 100%;
+    min-height: 6vh;
+    background-color: green;
+    color: white;
+    font-size: 1.4rem;
+    border: 1px solid #025002;
+    align-items: center; }
+    .cart-listWithOrders > .shoppingCart-content > img {
+      width: 2.5vw;
+      height: 13vh;
+      margin: 1% 8% 1% 4%; }
+    .cart-listWithOrders > .shoppingCart-content .beerTitle {
+      color: white;
+      text-decoration: none;
+      flex-basis: 35%;
+      overflow: hidden;
+      margin-left: 4%;
+      margin-right: 3%; }
+      .cart-listWithOrders > .shoppingCart-content .beerTitle:hover {
+        color: darkred;
+        text-decoration-line: underline;
+        font-size: 1.5rem; }
+    .cart-listWithOrders > .shoppingCart-content > :nth-child(4) {
+      flex-basis: 10%;
+      margin-left: 6%;
+      margin-right: 5%; }
+    .cart-listWithOrders > .shoppingCart-content > :nth-child(5) {
+      margin-left: 4%; }
+    .cart-listWithOrders > .shoppingCart-content > :nth-last-child(1) {
+      margin-left: 5%;
+      margin-right: 4%;
+      flex-basis: 15%; }
+    .cart-listWithOrders > .shoppingCart-content > button {
+      text-transform: uppercase;
+      font-weight: normal;
+      font-size: 1.5rem;
+      color: #722121;
+      letter-spacing: 2px;
+      border: 1px solid green;
+      background-color: limegreen;
+      cursor: pointer;
+      margin: 0 2% 0 2%;
+      text-decoration: none;
+      text-align: center;
+      padding: 1%;
+      border-radius: 13%;
+      margin: 0 1%;
+      flex-basis: 7%; }
+      .cart-listWithOrders > .shoppingCart-content > button:hover {
+        transition: 0.5s;
+        background-color: green;
+        color: lime;
+        background-color: brown; }
+
+.shoppingCart-columnTitles {
+  font-weight: bold;
+  text-transform: capitalize;
+  background-color: #025002;
+  color: #f1af59;
+  width: 90%;
+  margin: auto;
+  margin-top: 2%; }
+  .shoppingCart-columnTitles > :nth-child(1) {
+    margin-left: 1%; }
+  .shoppingCart-columnTitles > :nth-child(2) {
+    margin-left: 20%; }
+  .shoppingCart-columnTitles > :nth-child(3) {
+    margin-left: 25%; }
+  .shoppingCart-columnTitles > :nth-child(4) {
+    margin-left: 13%; }
+  .shoppingCart-columnTitles > :nth-child(5) {
+    margin-left: 8%; }
+  .shoppingCart-columnTitles > p {
+    margin: 1%;
+    display: inline-block;
+    font-size: 1.2rem; }
+
+.cart-recapCosts {
+  margin: 3% 0 3% 0;
+  margin-left: 77%; }
+  .cart-recapCosts > p {
+    text-transform: uppercase;
+    color: brown;
+    display: inline-block;
+    font-size: 1.4rem; }
+  .cart-recapCosts > .sum {
+    font-weight: bold;
+    color: black;
+    margin-left: 7%;
+    font-size: 1.3rem; }
+
+.cart-buttons1 {
+  margin: auto;
+  text-align: center; }
+  .cart-buttons1 > p {
+    font-size: 1.5rem;
+    text-transform: none;
+    font-weight: bold;
+    display: inline-block; }
+  .cart-buttons1 > a,
+  .cart-buttons1 > button {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: #722121;
+    letter-spacing: 2px;
+    border: 1px solid green;
+    background-color: limegreen;
+    cursor: pointer;
+    margin: 0 2% 0 2%;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.5%;
+    border-radius: 13%;
+    padding: 1% 1.25%;
+    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+    display: inline-block; }
+    .cart-buttons1 > a:hover,
+    .cart-buttons1 > button:hover {
+      transition: 0.5s;
+      background-color: green;
+      color: lime;
+      background-color: brown; }
+
+.cart-buttons2 {
+  width: 100%;
+  margin: 4% 0 2% 4%; }
+  .cart-buttons2 > a {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: #722121;
+    letter-spacing: 2px;
+    border: 1px solid green;
+    background-color: limegreen;
+    cursor: pointer;
+    margin: 0 2% 0 2%;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.5%;
+    border-radius: 13%;
+    padding: 1%;
+    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
+    font-weight: bold; }
+    .cart-buttons2 > a:hover {
+      transition: 0.5s;
+      background-color: green;
+      color: lime;
+      background-color: brown; }
+    .cart-buttons2 > a:nth-child(2) {
+      margin-left: 45%; }
+      @media screen and (max-width: 1920) and (max-height: 1080) {
+        .cart-buttons2 > a:nth-child(2) {
+          margin-left: 55%; } }
+
+.registration-form {
+  margin: auto;
+  width: 95%;
+  height: 70vh;
+  background-color: rgba(50, 205, 50, 0.9);
+  padding-bottom: 10%;
+  box-shadow: 3px 3px 5px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 5%;
+  position: relative;
+  width: 75%;
+  height: 590px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+  .registration-form > button {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: #722121;
+    letter-spacing: 2px;
+    border: 1px solid green;
+    background-color: limegreen;
+    cursor: pointer;
+    margin: 0 2% 0 2%;
+    text-decoration: none;
+    text-align: center;
+    padding: 2%;
+    border-radius: 13%;
+    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+    margin: 4% 0 0 20%;
+    justify-self: center; }
+    .registration-form > button:hover {
+      transition: 0.5s;
+      background-color: green;
+      color: lime; }
+  .registration-form input {
+    background-color: green;
+    font-size: 1.2rem; }
+  .registration-form input:focus {
+    border: 1px solid yellow; }
+
+.form-header {
+  display: flex;
+  flex-basis: 100%;
+  height: 15%;
+  text-align: center; }
+  .form-header > h3 {
+    flex-basis: 40%;
+    font-size: 1.8rem;
+    margin: 4% 0 0 30%; }
+  .form-header > a {
+    display: block;
+    position: relative;
+    margin: 1% 0 0 76%;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: #722121;
+    font-weight: bold;
+    margin: 2%;
+    height: 30%;
+    margin-left: 18%;
+    bottom: -13%; }
+    .form-header > a:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 30%;
+      height: 3px;
+      right: 11%;
+      bottom: -10%;
+      background-color: #722121; }
+    .form-header > a:hover:after {
+      background-color: lime;
+      transition: 0.5s;
+      right: 70%; }
+    .form-header > a:hover {
+      transition: 0.5s;
+      color: lime; }
+    .form-header > a::after {
+      bottom: -15%;
+      right: 0; }
+
+.form-textFields {
+  height: 60%;
+  flex-basis: 45%;
+  margin: 2% auto;
+  text-align: center;
+  text-transform: capitalize; }
+  .form-textFields > label {
+    display: block;
+    margin: 1% 0;
+    width: 100%;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    text-align: left; }
+    @media screen and (max-width: 1920) and (max-height: 1080) {
+      .form-textFields > label {
+        margin: 2%; } }
+  .form-textFields > input {
+    position: relative;
+    display: block;
+    width: 60%;
+    height: 5vh;
+    margin-bottom: 3%;
+    font-size: 1.3rem; }
+  .form-textFields > .withInfo {
+    display: none;
+    text-transform: none;
+    margin: 0;
+    background-color: #088508;
+    border: 2px solid #10b310; }
+  .form-textFields > .infoAboutAsterix {
+    position: absolute;
+    bottom: 9%;
+    left: 3%;
+    font-size: 1.1rem;
+    font-weight: normal;
+    text-transform: none; }
+
+.form-acceptFields {
+  flex-basis: 45%;
+  height: 60%;
+  margin: 10% auto 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  text-transform: none; }
+  .form-acceptFields > input {
+    background-color: green;
+    flex-basis: 10%; }
+  .form-acceptFields > :nth-child(even) {
+    flex-basis: 90%;
+    text-align: left;
+    height: 30%; }
+  .form-acceptFields > .agreementOnRules {
+    display: inline; }
+    .form-acceptFields > .agreementOnRules > p {
+      display: inline; }
+  .form-acceptFields a {
+    text-transform: capitalize;
+    color: black;
+    font-weight: bold;
+    text-decoration: none; }
+
+.inlineValidation {
+  position: absolute;
+  top: 10%;
+  left: 29%;
+  height: 5vh;
+  width: 16vw;
+  background-color: red;
+  color: yellowgreen;
+  text-transform: none;
+  text-align: center; }
+
+.inlineValidationForChecked {
+  position: absolute;
+  top: 30%;
+  left: 54%;
+  height: 5vh;
+  width: 16vw;
+  background-color: red;
+  color: yellowgreen;
+  text-transform: none; }
+
+.filterOptions-form {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: inherit;
+  font-size: unset;
+  height: 300%;
+  width: 260%;
+  border: 2px solid brown;
+  border-top: none; }
+
+.clearfix:after {
+  content: "";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both; }
+
+.send {
+  clear: both;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 1rem;
+  color: #722121;
+  letter-spacing: 2px;
+  border: 1px solid green;
+  background-color: limegreen;
+  cursor: pointer;
+  margin: 0 2% 0 2%;
+  text-decoration: none;
+  text-align: center;
+  padding: 2%;
+  border-radius: 13%;
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%);
+  border: 1px solid brown; }
+  .send:hover {
+    background-color: chocolate;
+    color: #5bb61f; }
+
+.filtersForm-colors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 90%;
+  width: 50%;
+  float: left;
+  margin: 2% 0;
+  padding: 0 8% 15% 2%;
+  text-transform: capitalize;
+  font-size: 1rem; }
+  .filtersForm-colors > label {
+    height: 15%;
+    margin-bottom: 5%; }
+
+.filtersForm-yeasts {
+  position: relative;
+  height: 20%;
+  width: 48%;
+  float: right;
+  margin: 2% 0;
+  margin-bottom: 50%;
+  padding: 0 1% 0 2%;
+  background-color: inherit;
+  color: #722121;
+  border: 1px solid brown; }
+  .filtersForm-yeasts > options {
+    background-color: inherit;
+    color: inherit; }

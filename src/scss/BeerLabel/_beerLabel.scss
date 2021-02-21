@@ -1,0 +1,69 @@
+
+.beer-label{
+   
+    flex-basis: 22%;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    min-height: 45vh; 
+    font-size: 1.3rem; 
+    font-weight: bold;
+    margin: 2% 0 3% 0;
+    padding-bottom: 1%;
+    background-color: $universalBackgroundColor;
+    border: 2px solid green;
+    border-radius: 5%;
+
+    @media screen and (max-width: 1920) and (max-height:1080) {
+       flex-basis: 28%;
+    }
+
+    > span,
+    > p{
+        flex-basis: 100%;
+        padding: 15px;
+    }
+
+    > span.beerTitle{
+        max-height: 58px;
+        overflow: hidden;
+    }
+
+    > p.price{
+        font-weight: normal;
+    }
+
+    > a{
+        flex-basis: 45%;
+        border-radius: 10%;
+        @include greenButton(1.1rem);
+        border: 3px solid green;
+
+        &:hover{
+            @include greenButtonHover()
+        }
+    }
+    > button{
+        flex-basis: 45%;
+        border-radius: 10%;
+        @include greenButton(1.1rem);
+        border: 3px solid green;
+
+        &:hover{
+            @include greenButtonHover()
+        }
+     }
+
+    > img{
+        width: 20%;
+        height: 55%;
+
+        @media screen and (max-width: 1920) and (max-height:1080) {
+            width: 25%;
+            height: 65%;
+        }
+    }
+}
+
+

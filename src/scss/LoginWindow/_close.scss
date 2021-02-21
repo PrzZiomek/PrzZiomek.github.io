@@ -1,0 +1,20 @@
+.loginWindow-close{
+
+    position: absolute;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    height: 6%;
+    width: 6%;
+    right: 0;
+    top: 0;
+    color: red;
+    transform: translate(42%,-42%);
+    border: 3px solid green;
+    background-color: rgb(196, 151, 93);
+    cursor: pointer;
+
+    &:hover{
+        @include greenButtonHover();
+    }
+}

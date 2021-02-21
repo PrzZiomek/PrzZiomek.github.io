@@ -1,0 +1,32 @@
+.registration-form{
+
+    margin: auto;
+    @include universalBackground();
+    position: relative;
+    width: 75%;
+    height: 590px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    > button{
+        @include greenButton(1.2rem, 2%);
+        box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
+        font-weight: bold;
+        margin: 4% 0 0 20%;
+        justify-self: center;
+
+        &:hover{
+           @include greenButtonHover()
+        }
+    }
+
+    & input{
+        background-color: green;
+        font-size: 1.2rem;
+    }
+
+    & input:focus{
+        border: 1px solid yellow;
+    }
+}

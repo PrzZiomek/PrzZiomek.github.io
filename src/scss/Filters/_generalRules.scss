@@ -1,0 +1,23 @@
+.filterOptions-form{
+
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: inherit;
+    font-size: unset;
+    height: 300%;
+    width: 260%;
+    border: 2px solid brown;
+    border-top: none;
+}
+
+
+.clearfix:after { 
+    
+    content: "";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+  }

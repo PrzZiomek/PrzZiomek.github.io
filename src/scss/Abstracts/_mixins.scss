@@ -1,0 +1,107 @@
+@mixin  greenButton($size:1rem, $padding:0) {
+
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: $size;
+    color: $titleFontColor;
+    letter-spacing: 2px;
+    border: 1px solid green;
+    background-color: limegreen;
+    cursor: pointer;  
+    margin: 0 2% 0 2%;
+    text-decoration: none;
+    text-align: center;
+    padding: $padding;
+    border-radius: 13%;
+}
+
+
+
+@mixin  greenButtonHover {
+
+    transition: 0.5s;
+    background-color: green;
+    color: lime;
+}
+
+
+
+@mixin yellowLink($element) {
+
+    display: block;
+    position: relative;
+    margin: 1% 0 0 76%;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: $titleFontColor;
+    font-weight: bold;
+
+    @at-root{
+        #{$element}:after{
+            content: "";
+            display: block;
+            position: absolute;
+            width: 30%;
+            height: 3px;
+            right: 11%;
+            bottom: -10%;
+            background-color: $titleFontColor;
+
+        }
+
+        #{$element}:hover:after{
+            background-color: lime;
+            transition: 0.5s;  
+            right: 70%;                 
+        }
+
+        #{$element}:hover{
+            transition: 0.5s;                   
+            color: lime;
+        }
+    }
+   
+}  
+
+
+
+
+@mixin universalBackground {
+
+    width: 95%;
+    height: 70vh;
+    background-color: $universalBackgroundColor;
+    padding-bottom: 10%;
+    box-shadow: $universalBorderShadow;
+    border-radius: 5%;
+
+}
+
+
+
+@mixin orderCounter($top:0, $right:0) {
+
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    display: block;
+    top: $top;
+    right: $right;
+    font-size: 1.8rem;
+    content: attr(beerAmount);
+
+}
+
+
+
+@mixin underlayModal {
+    
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0, 0) ;
+}
